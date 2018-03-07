@@ -23,35 +23,20 @@ namespace Gamezy.Controllers
 
         // GET: Players/id
         [Route("Players/{id:regex(\\d*)}")]
-        public ActionResult Index(int? id)
+        public ActionResult Index(int id)
         {
-            if(!id.HasValue)
-            { 
-                return RedirectToAction("Index");
-            }
-            else
+            try
             {
-                // Try to find the player.
-                try
-                {
-                    var i = id ?? default(int);
-                    // Adds a single, specific player to our list.
-                    
-                    var targetPlayer = new List<Player>
-                    {
-                        Players[i]
-                    };
-                    viewModel = new IndexPlayerViewModel { Players = targetPlayer };
-
-                    return View(viewModel);
-                }
-                catch (ArgumentOutOfRangeException e)
-                {
-                    Console.WriteLine(e);
-                    throw new HttpException(404, "Not found");
-                }
+                // Adds a single, specific player to our list.
+                var targetPlayer = new List<Player> { Players[id] };
+                viewModel = new IndexPlayerViewModel { Players = targetPlayer };
+                return View(viewModel);
             }
-            
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e);
+                throw new HttpException(404, "Not found");
+            }
         }
 
         // GET: Players
