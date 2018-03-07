@@ -15,20 +15,28 @@
 // If there is only one designated Player:
 else if (Model.Players.Count == 1)
 {
-    <h2>@Model.Players[0].Name</h2>
+    <h4>@Model.Players[0].Name</h4>
 }
 
 // Default: Print all players w/ generated links.
 else
 {
-    <ul>
+    <table>
+        <tr>
+            <th>Player Name</th>
+        </tr>
         @{
             var i = 0;
             foreach (var p in Model.Players)
-             {
-                 <p><a href="./Players/@i">@p.Name</a></p>
-                 ++i;
-             }
+            {
+                <tr>
+                    <td>
+                        <p><a href="./@i">@p.Name</a></p>
+                    </td>
+                </tr>
+
+                ++i;
+            }
         }
-    </ul>
+    </table>
 }
