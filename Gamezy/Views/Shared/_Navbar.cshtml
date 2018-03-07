@@ -10,9 +10,14 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-@*                Text, action name, controller where the action lives.*@
-                <li>@Html.ActionLink("Players", "Index", "Players")</li>
-                <li>@Html.ActionLink("Games", "Index", "Games")</li>
+                @*  Text, action name, controller where the action lives.
+                    "" is where we would refer to a specific Controller Method.
+                    Removing it completely makes it default to Index() without args.
+                    Navigating to a Player, then back to Players, resulted in the app
+                    reloading the current Player page for some reason. Residual data?
+                *@
+                <li>@Html.ActionLink("Players", "", "Players")</li>
+                <li>@Html.ActionLink("Games", "", "Games")</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
