@@ -1,0 +1,33 @@
+﻿
+@using System.Diagnostics.Eventing.Reader
+@model Gamezy.ViewModels.RandomGameViewModel
+
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    // Determine popularity level. < 5? Popular. Else? Nothing. Styled.
+    var popularity = Model.Players.Count >= 5 ? "popular" : null;
+
+}
+<h2 class="@popularity">@Model.Game.Name</h2>
+<br/>
+<h4>Players</h4>
+
+<!-- Display player data. -->
+@if (Model.Players.Count <= 0)
+{
+    <p>No one is playing @Model.Game.Name yet.</p>
+}
+
+else
+{
+    <ul>
+        @foreach (var p in Model.Players)
+        {
+            <li>@p.Name</li>
+        }
+    </ul>
+}

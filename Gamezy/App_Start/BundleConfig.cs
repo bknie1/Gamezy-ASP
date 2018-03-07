@@ -23,8 +23,9 @@ namespace Gamezy
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            // Used Lux Bootswatch theme instead of the standard BS theme.
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.min.css",
                       "~/Content/site.css"));
         }
     }

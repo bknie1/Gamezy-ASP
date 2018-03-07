@@ -1,0 +1,19 @@
+﻿@model Gamezy.ViewModels.IndexGameViewModel
+
+<h2>Games</h2>
+
+<!-- Display player data. -->
+@if (Model.Games.Count <= 0)
+{
+    <p>There are no games yet.</p>
+}
+
+else
+{
+    <ul>
+        @foreach (var g in Model.Games)
+        {
+            <li>@g.Name</li>
+        }
+    </ul>
+}
