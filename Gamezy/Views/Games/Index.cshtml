@@ -1,4 +1,8 @@
 ﻿@model Gamezy.ViewModels.IndexGameViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <h2>Games</h2>
 
@@ -8,12 +12,31 @@
     <p>There are no games yet.</p>
 }
 
+// If there is only one designated Game:
+else if (Model.Games.Count == 1)
+{
+    <h4>@Model.Games[0].Name</h4>
+}
+
+// Default: Print all players w/ generated links.
 else
 {
-    <ul>
-        @foreach (var g in Model.Games)
-        {
-            <li>@g.Name</li>
+    <table>
+        <tr>
+            <th>Game Name</th>
+        </tr>
+        @{
+            var i = 0;
+            foreach (var g in Model.Games)
+            {
+                <tr>
+                    <td>
+                        <p><a href="./Games/Details/@i">@g.Name</a></p>
+                    </td>
+                </tr>
+
+                ++i;
+            }
         }
-    </ul>
+    </table>
 }
