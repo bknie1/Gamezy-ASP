@@ -10,6 +10,7 @@ namespace Gamezy.Controllers
 {
     public class PlayersController : Controller
     {
+        //DEBUG // TODO Create database.
         public List<Player> Players = new List<Player>
         {
             new Player() {Name = "Brandon"},
@@ -19,18 +20,18 @@ namespace Gamezy.Controllers
             new Player() {Name = "James"}
         };
 
-        private IndexPlayerViewModel viewModel;
-
+        private IndexPlayerViewModel _viewModel;
+        //---------------------------------------------------------------------
         // GET: Players/id
-        [Route("Players/{id:regex(\\d*)}")]
+        [Route("Players/Details/{id:regex(\\d*)}")]
         public ActionResult Index(int id)
         {
             try
             {
                 // Adds a single, specific player to our list.
                 var targetPlayer = new List<Player> { Players[id] };
-                viewModel = new IndexPlayerViewModel { Players = targetPlayer };
-                return View(viewModel);
+                _viewModel = new IndexPlayerViewModel { Players = targetPlayer };
+                return View(_viewModel);
             }
             catch (ArgumentOutOfRangeException e)
             {
@@ -38,12 +39,12 @@ namespace Gamezy.Controllers
                 throw new HttpException(404, "Not found");
             }
         }
-
+        //---------------------------------------------------------------------
         // GET: Players
         public ActionResult Index()
         {
-            viewModel = new IndexPlayerViewModel { Players = Players };
-            return this.View(viewModel);
+            _viewModel = new IndexPlayerViewModel { Players = Players };
+            return this.View(_viewModel);
         }
     }
 }
