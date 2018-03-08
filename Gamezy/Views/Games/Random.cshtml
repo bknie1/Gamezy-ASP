@@ -9,25 +9,26 @@
 
 @{
     // Determine popularity level. < 5? Popular. Else? Nothing. Styled.
-    var popularity = Model.Players.Count >= 5 ? "popular" : null;
+    // var popularity = Model.Players.Count >= 5 ? "popular" : null; // TODO Reimplement
 
 }
-<h2 class="@popularity">@Model.Game.Name</h2>
-<br/>
-<h4>Players</h4>
+@*<h2 class="@popularity">@Model.Game.Name</h2>*@
+<h2>@Model.Game.Name</h2>
+<br />
+@*<h4>Players</h4>*@
 
 <!-- Display player data. -->
-@if (Model.Players.Count <= 0)
-{
-    <p>No one is playing @Model.Game.Name yet.</p>
-}
-
-else
-{
-    <ul>
-        @foreach (var p in Model.Players)
-        {
-            <li>@p.Name</li>
-        }
-    </ul>
-}
+@*@if (Model.Players.Count <= 0)*@
+@*{*@
+@*    <p>No one is playing @Model.Game.Name yet.</p>*@
+@*}*@
+@**@
+@*else*@
+@*{*@
+@*    <ul>*@
+@*        @foreach (var p in Model.Players)*@
+@*        {*@
+@*            <li>@p.Name</li>*@
+@*        }*@
+@*    </ul>*@
+@*}*@
