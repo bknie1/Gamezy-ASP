@@ -20,6 +20,11 @@ namespace Gamezy.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        // Identity DbSets for Entity. Entity will create tables for us.
+        public DbSet<Player> Players { get; set; }
+        public DbSet<Game> Games { get; set; }
+        public DbSet<Membership> Membership { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

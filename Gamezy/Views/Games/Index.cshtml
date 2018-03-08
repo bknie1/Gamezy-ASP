@@ -12,7 +12,7 @@
     <p>There are no games yet.</p>
 }
 
-// If there is only one designated Game:
+// If we're only listing one element (usually the result of a query):
 else if (Model.Games.Count == 1)
 {
     <h4>@Model.Games[0].Name</h4>
@@ -26,16 +26,14 @@ else
             <th>Game Name</th>
         </tr>
         @{
-            var i = 0;
             foreach (var g in Model.Games)
             {
                 <tr>
                     <td>
-                        <p><a href="./Games/Details/@i">@g.Name</a></p>
+                        <p><a href="./Games/Details/@g.Id">@g.Name</a>
+                        </p>
                     </td>
                 </tr>
-
-                ++i;
             }
         }
     </table>

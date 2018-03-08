@@ -9,6 +9,5 @@ namespace Gamezy.ViewModels
     public class RandomGameViewModel
     {
         public Game Game { get; set; }
-        public List<Player> Players { get; set; }
     }
 }

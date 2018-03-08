@@ -15,31 +15,20 @@ namespace Gamezy.Controllers
     /// </summary>
     public class GamesController : Controller
     {
-        // DEBUG // TODO Create database.
-        private readonly List<Game> _games = new List<Game>
+        private readonly ApplicationDbContext _context;
+        private readonly List<Game> _games;
+        private readonly List<Player> _players;
+        //---------------------------------------------------------------------
+        public GamesController()
         {
-            new Game {Name = "Heroes of the Storm"},
-            new Game {Name = "Overwatch"},
-            new Game {Name = "World of Warcraft"},
-            new Game {Name = "Starcraft"},
-            new Game {Name = "Monster Hunter"},
-            new Game {Name = "Half Life"},
-            new Game {Name = "Shenmue"},
-            new Game {Name = "Sonic Adventure"},
-            new Game {Name = "Elder Scrolls Online"},
-            new Game {Name = "Titanfall"},
-            new Game {Name = "Counter Strike"}
-        };
-
-        // DEBUG // TODO Create database.
-        private readonly List<Player> _players = new List<Player>
+            _context = new ApplicationDbContext(); // Disposable object.
+            _games = _context.Games.ToList(); // DB Query -> Iterable List
+        }
+        //---------------------------------------------------------------------
+        protected override void Dispose(bool disposing)
         {
-            new Player() {Name = "Brandon"},
-            new Player() {Name = "Philip"},
-            new Player() {Name = "Yilan"},
-            new Player() {Name = "Chrissy"},
-            new Player() {Name = "James"}
-        };
+            _context.Dispose(); // Manual dispose.
+        }
 
         //---------------------------------------------------------------------
         // GET: Games/Random
@@ -53,7 +42,6 @@ namespace Gamezy.Controllers
             var viewModel = new RandomGameViewModel
             {
                 Game = randomGame,
-                Players = _players
             };
 
             // There are other ways to do this using ViewBag and ViewData but this is the cleanest.
@@ -68,7 +56,7 @@ namespace Gamezy.Controllers
             try
             {
                 // Adds a single, specific game to our list.
-                var targetGame = new List<Game> { _games[id] };
+                var targetGame = new List<Game> { _games.Find(c => c.Id == id) };
                 var viewModel = new IndexGameViewModel { Games = targetGame };
                 return View(viewModel);
             }

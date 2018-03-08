@@ -12,13 +12,13 @@
     <p>There are no players yet.</p>
 }
 
-// If there is only one designated Player:
+// If we're only listing one element (usually the result of a query):
 else if (Model.Players.Count == 1)
 {
     <h4>@Model.Players[0].Name</h4>
 }
 
-// Default: Print all players w/ generated links.
+// Default: Print all players w/ generated links. // TODO Partial View?
 else
 {
     <table>
@@ -26,16 +26,13 @@ else
             <th>Player Name</th>
         </tr>
         @{
-            var i = 0;
             foreach (var p in Model.Players)
             {
                 <tr>
                     <td>
-                        <p><a href="./Players/Details/@i">@p.Name</a></p>
+                        <p><a href="./Players/Details/@p.Id">@p.Name</a></p>
                     </td>
                 </tr>
-
-                ++i;
             }
         }
     </table>
