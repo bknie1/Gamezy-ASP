@@ -201,21 +201,9 @@
     <Compile Include="Migrations\201803080414486_InitialMigration.Designer.cs">
       <DependentUpon>201803080414486_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803080416567_PopulateMemberships.cs" />
-    <Compile Include="Migrations\201803080416567_PopulateMemberships.Designer.cs">
-      <DependentUpon>201803080416567_PopulateMemberships.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803080423511_PopulatePlayers.cs" />
-    <Compile Include="Migrations\201803080423511_PopulatePlayers.Designer.cs">
-      <DependentUpon>201803080423511_PopulatePlayers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803080447304_ApplyPlayerAnnotations.cs" />
-    <Compile Include="Migrations\201803080447304_ApplyPlayerAnnotations.Designer.cs">
-      <DependentUpon>201803080447304_ApplyPlayerAnnotations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803080451021_PopulateGames.cs" />
-    <Compile Include="Migrations\201803080451021_PopulateGames.Designer.cs">
-      <DependentUpon>201803080451021_PopulateGames.cs</DependentUpon>
+    <Compile Include="Migrations\201804092308216_PlayerDescription.cs" />
+    <Compile Include="Migrations\201804092308216_PlayerDescription.Designer.cs">
+      <DependentUpon>201804092308216_PlayerDescription.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -246,6 +234,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -314,17 +303,8 @@
     <EmbeddedResource Include="Migrations\201803080414486_InitialMigration.resx">
       <DependentUpon>201803080414486_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803080416567_PopulateMemberships.resx">
-      <DependentUpon>201803080416567_PopulateMemberships.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803080423511_PopulatePlayers.resx">
-      <DependentUpon>201803080423511_PopulatePlayers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803080447304_ApplyPlayerAnnotations.resx">
-      <DependentUpon>201803080447304_ApplyPlayerAnnotations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803080451021_PopulateGames.resx">
-      <DependentUpon>201803080451021_PopulateGames.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804092308216_PlayerDescription.resx">
+      <DependentUpon>201804092308216_PlayerDescription.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
