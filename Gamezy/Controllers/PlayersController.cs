@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Diagnostics;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,19 +13,17 @@ namespace Gamezy.Controllers
     {
         private readonly ApplicationDbContext _context;
         private IndexPlayerViewModel _viewModel;
-        private readonly List<Player> _players;
 
         //---------------------------------------------------------------------
         public PlayersController()
         {
             // Note: _context not queried until we iterate over the object.
             _context = new ApplicationDbContext(); // Disposable object.
-            _players = _context.Players.ToList(); // DB Query -> Iterable List
         }
         //---------------------------------------------------------------------
         protected override void Dispose(bool disposing)
-        {
-            _context.Dispose(); // Manual dispose.
+        { 
+            _context.Dispose(); // Disposable object.
         }
         //---------------------------------------------------------------------
         // GET: Players/id
@@ -36,21 +33,24 @@ namespace Gamezy.Controllers
             try
             {
                 // Queries players with a given key ID to get specific player.
-                var targetPlayer = new List<Player> { _players.Find(p => p.Id == id) };
+                var targetPlayer = new List<Player> { _context.Players.SingleOrDefault(p => p.Id == id) };
+
+                // Adds that match to a list. Only yields one result.
                 _viewModel = new IndexPlayerViewModel { Players = targetPlayer };
                 return View(_viewModel);
             }
             catch (ArgumentOutOfRangeException e)
             {
                 Console.WriteLine(e);
-                throw new HttpException(404, "Not found");
+                throw new HttpException(404, "Not found.");
             }
         }
         //---------------------------------------------------------------------
         // GET: Players
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            _viewModel = new IndexPlayerViewModel { Players = _players };
+            // Fetches all players.
+            _viewModel = new IndexPlayerViewModel { Players = _context.Players.ToList() };
             return this.View(_viewModel);
         }
     }
