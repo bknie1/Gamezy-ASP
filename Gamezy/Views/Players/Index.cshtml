@@ -15,7 +15,21 @@
 // If we're only listing one element (usually the result of a query):
 else if (Model.Players.Count == 1)
 {
-    <h4>@Model.Players[0].Name</h4>
+    <h3>@Model.Players[0].Name</h3>
+
+    <h4>Newsletter Subscription</h4>
+        if (Model.Players[0].NewsletterSubscription)
+        {
+        <p>
+            The user is subscribed to the newsletter.
+        </p>
+        }
+        else
+        {
+        <p>
+            The user is not subscribed to the newsletter.
+        </p>
+        }
 }
 
 // Default: Print all players w/ generated links. // TODO Partial View?
