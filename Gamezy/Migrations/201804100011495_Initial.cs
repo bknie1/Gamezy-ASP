@@ -3,7 +3,7 @@ namespace Gamezy.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialMigration : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -14,25 +14,28 @@ namespace Gamezy.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
-            
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Id);
+
             CreateTable(
                 "dbo.Memberships",
                 c => new
                     {
-                        Id = c.Byte(nullable: false),
+                        Id = c.Byte(nullable: false, identity: true),
                         SignUpFee = c.Short(nullable: false),
                         DurationMonth = c.Byte(nullable: false),
                         DiscountRate = c.Byte(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
-            
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Id);
+
             CreateTable(
                 "dbo.Players",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false, maxLength: 255),
+                        Description = c.String(nullable: true, maxLength: 255),
                         NewsletterSubscription = c.Boolean(nullable: false),
                         MembershipId = c.Byte(nullable: false),
                     })
