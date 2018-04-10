@@ -201,6 +201,18 @@
     <Compile Include="Migrations\201804100011495_Initial.Designer.cs">
       <DependentUpon>201804100011495_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804100133331_MembershipTier.cs" />
+    <Compile Include="Migrations\201804100133331_MembershipTier.Designer.cs">
+      <DependentUpon>201804100133331_MembershipTier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804100142331_GameGenre.cs" />
+    <Compile Include="Migrations\201804100142331_GameGenre.Designer.cs">
+      <DependentUpon>201804100142331_GameGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804100143435_PlayerBirthday.cs" />
+    <Compile Include="Migrations\201804100143435_PlayerBirthday.Designer.cs">
+      <DependentUpon>201804100143435_PlayerBirthday.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Membership.cs" />
@@ -284,6 +296,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804100011495_Initial.resx">
       <DependentUpon>201804100011495_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804100133331_MembershipTier.resx">
+      <DependentUpon>201804100133331_MembershipTier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804100142331_GameGenre.resx">
+      <DependentUpon>201804100142331_GameGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804100143435_PlayerBirthday.resx">
+      <DependentUpon>201804100143435_PlayerBirthday.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
