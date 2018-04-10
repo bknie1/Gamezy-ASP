@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -47,6 +48,7 @@ namespace Gamezy.Controllers
                 MembershipId = viewModel.Player.MembershipId
             };
 
+            // Does the player already exist? If so, update. Otherwise, create.
             _context.Players.Add(newPlayer); // Add our new player locally.
             _context.SaveChanges(); // Write changes to DB via transaction.
             return RedirectToAction("Index", "Players");
@@ -58,6 +60,10 @@ namespace Gamezy.Controllers
         {
             return View();
         }
+        //---------------------------------------------------------------------
+        // POST: Players/Update
+        // To update user data.
+        // TODO: Handle edit or use Create schema to add OR update.
         //---------------------------------------------------------------------
         // GET: Players/id
         [Route("Players/Details/{id:regex(\\d*)}")]
