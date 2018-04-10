@@ -4,6 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@*Some lazy temp Styling *@
+<style type="text/css">
+    td, th {
+        padding:0 15px 0 15px;
+    }
+</style>
+
 <h2>Games</h2>
 
 <!-- Display player data. -->
@@ -15,7 +22,8 @@
 // If we're only listing one element (usually the result of a query):
 else if (Model.Games.Count == 1)
 {
-    <h4>@Model.Games[0].Name</h4>
+    <h3>@Model.Games[0].Name</h3>
+    <h5>@Model.Games[0].Genre</h5>
 }
 
 // Default: Print all players w/ generated links.
@@ -30,8 +38,7 @@ else
             {
                 <tr>
                     <td>
-                        <p><a href="./Games/Details/@g.Id">@g.Name</a>
-                        </p>
+                        <a href="./Games/Details/@g.Id">@g.Name</a>
                     </td>
                 </tr>
             }

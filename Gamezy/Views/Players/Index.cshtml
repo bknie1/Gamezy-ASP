@@ -4,6 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@*Some lazy temp Styling *@
+<style type="text/css">
+     td, th {
+         padding:0 15px 0 15px;
+     }
+</style>
+
 <h2>Players</h2>
 
 <!-- Display player data. -->
@@ -15,7 +22,28 @@
 // If we're only listing one element (usually the result of a query):
 else if (Model.Players.Count == 1)
 {
-    <h4>@Model.Players[0].Name</h4>
+    <h3>@Model.Players[0].Name</h3>
+    <br />
+    <h4>Description</h4>
+    if (@Model.Players[0].Description != null)
+    {
+        <p>
+            @Model.Players[0].Description
+        </p>
+    }
+    <br />
+    if (Model.Players[0].NewsletterSubscription)
+    {
+        <p>
+            The user is subscribed to the newsletter.
+        </p>
+        }
+        else
+        {
+        <p>
+            The user is not subscribed to the newsletter.
+        </p>
+        }
 }
 
 // Default: Print all players w/ generated links. // TODO Partial View?
@@ -24,13 +52,29 @@ else
     <table>
         <tr>
             <th>Player Name</th>
+            <th>Membership Tier</th>
+            <th>Discount Rate</th>
         </tr>
         @{
             foreach (var p in Model.Players)
             {
                 <tr>
                     <td>
-                        <p><a href="./Players/Details/@p.Id">@p.Name</a></p>
+                        @Html.ActionLink(p.Name, 
+                        "Details",   // <-- ActionMethod
+                        "Players",  // <-- Controller Name.
+                        new { p.Id }, // <-- Route arguments.
+                        null  // <-- htmlArguments .. which are none. Required.
+                        )
+                    </td>
+                    <td>
+                        @p.Membership.Tier
+                    </td>
+                    <td>
+                        @p.Membership.DiscountRate%
+                    </td>
+                    <td>
+                        <a href="./Players/Edit/@p.Id">Edit</a>
                     </td>
                 </tr>
             }

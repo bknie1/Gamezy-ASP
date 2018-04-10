@@ -17,7 +17,6 @@ namespace Gamezy.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly List<Game> _games;
-        private readonly List<Player> _players;
         //---------------------------------------------------------------------
         public GamesController()
         {

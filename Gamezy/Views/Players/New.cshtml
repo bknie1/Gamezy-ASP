@@ -1,0 +1,42 @@
+﻿@model Gamezy.ViewModels.NewPlayerViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Customer</h2>
+@*  Renders the beginning 'form' tag. Using will render the close tag for us.
+    Returns a disposable object.
+    At the end, the object returned 
+    
+*@
+@using (Html.BeginForm("Create", "Players"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Player.Name)
+        @*        Form Control is defined in Bootstrap*@
+        @Html.TextBoxFor(m => m.Player.Name, new {@class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Player.Birthday)
+        @Html.TextBoxFor(m => m.Player.Birthday, new {@class = "form-control"})
+    </div>
+
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Player.NewsletterSubscription) Newsletter
+        </label>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Player.MembershipId)
+        @Html.DropDownListFor(m => m.Player.MembershipId,
+            new SelectList(Model.Memberships, "Id", "Tier"),
+            "Select Membership",
+            new {@class = "form-control"}
+            )
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}

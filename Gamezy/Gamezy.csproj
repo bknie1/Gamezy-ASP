@@ -197,25 +197,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803080414486_InitialMigration.cs" />
-    <Compile Include="Migrations\201803080414486_InitialMigration.Designer.cs">
-      <DependentUpon>201803080414486_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201804100011495_Initial.cs" />
+    <Compile Include="Migrations\201804100011495_Initial.Designer.cs">
+      <DependentUpon>201804100011495_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803080416567_PopulateMemberships.cs" />
-    <Compile Include="Migrations\201803080416567_PopulateMemberships.Designer.cs">
-      <DependentUpon>201803080416567_PopulateMemberships.cs</DependentUpon>
+    <Compile Include="Migrations\201804100133331_MembershipTier.cs" />
+    <Compile Include="Migrations\201804100133331_MembershipTier.Designer.cs">
+      <DependentUpon>201804100133331_MembershipTier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803080423511_PopulatePlayers.cs" />
-    <Compile Include="Migrations\201803080423511_PopulatePlayers.Designer.cs">
-      <DependentUpon>201803080423511_PopulatePlayers.cs</DependentUpon>
+    <Compile Include="Migrations\201804100142331_GameGenre.cs" />
+    <Compile Include="Migrations\201804100142331_GameGenre.Designer.cs">
+      <DependentUpon>201804100142331_GameGenre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803080447304_ApplyPlayerAnnotations.cs" />
-    <Compile Include="Migrations\201803080447304_ApplyPlayerAnnotations.Designer.cs">
-      <DependentUpon>201803080447304_ApplyPlayerAnnotations.cs</DependentUpon>
+    <Compile Include="Migrations\201804100143435_PlayerBirthday.cs" />
+    <Compile Include="Migrations\201804100143435_PlayerBirthday.Designer.cs">
+      <DependentUpon>201804100143435_PlayerBirthday.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803080451021_PopulateGames.cs" />
-    <Compile Include="Migrations\201803080451021_PopulateGames.Designer.cs">
-      <DependentUpon>201803080451021_PopulateGames.cs</DependentUpon>
+    <Compile Include="Migrations\201804100335035_PlayerDescMembershipAnnotation.cs" />
+    <Compile Include="Migrations\201804100335035_PlayerDescMembershipAnnotation.Designer.cs">
+      <DependentUpon>201804100335035_PlayerDescMembershipAnnotation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -228,6 +228,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\IndexGameViewModel.cs" />
     <Compile Include="ViewModels\IndexPlayerViewModel.cs" />
+    <Compile Include="ViewModels\NewPlayerViewModel.cs" />
     <Compile Include="ViewModels\RandomGameViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +247,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -295,8 +297,27 @@
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Players\Index.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Players\New.cshtml" />
+    <Content Include="Views\Players\Details.cshtml" />
+    <Content Include="Views\Players\Edit.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201804100011495_Initial.resx">
+      <DependentUpon>201804100011495_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804100133331_MembershipTier.resx">
+      <DependentUpon>201804100133331_MembershipTier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804100142331_GameGenre.resx">
+      <DependentUpon>201804100142331_GameGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804100143435_PlayerBirthday.resx">
+      <DependentUpon>201804100143435_PlayerBirthday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804100335035_PlayerDescMembershipAnnotation.resx">
+      <DependentUpon>201804100335035_PlayerDescMembershipAnnotation.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -309,23 +330,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803080414486_InitialMigration.resx">
-      <DependentUpon>201803080414486_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803080416567_PopulateMemberships.resx">
-      <DependentUpon>201803080416567_PopulateMemberships.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803080423511_PopulatePlayers.resx">
-      <DependentUpon>201803080423511_PopulatePlayers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803080447304_ApplyPlayerAnnotations.resx">
-      <DependentUpon>201803080447304_ApplyPlayerAnnotations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803080451021_PopulateGames.resx">
-      <DependentUpon>201803080451021_PopulateGames.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

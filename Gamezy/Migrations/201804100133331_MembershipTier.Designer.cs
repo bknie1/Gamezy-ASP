@@ -7,13 +7,13 @@ namespace Gamezy.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PopulateMemberships : IMigrationMetadata
+    public sealed partial class MembershipTier : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateMemberships));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(MembershipTier));
         
         string IMigrationMetadata.Id
         {
-            get { return "201803080416567_PopulateMemberships"; }
+            get { return "201804100133331_MembershipTier"; }
         }
         
         string IMigrationMetadata.Source

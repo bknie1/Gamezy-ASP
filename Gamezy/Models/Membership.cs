@@ -11,5 +11,6 @@ namespace Gamezy.Models
         public short SignUpFee { get; set; } // $0 - $32,000
         public byte DurationMonth { get; set; } // 0 - 12 Months
         public byte DiscountRate { get; set; } // 0 - 100%
+        public string Tier { get; set; } // Bronze, Silver, Gold
     }
 }

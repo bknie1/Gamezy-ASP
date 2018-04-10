@@ -9,5 +9,6 @@ namespace Gamezy.ViewModels
     public class IndexPlayerViewModel
     {
         public List<Player> Players { get; set; }
+        public List<Membership> Memberships { get; set; }
     }
 }

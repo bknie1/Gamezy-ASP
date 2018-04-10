@@ -3,16 +3,16 @@ namespace Gamezy.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ApplyPlayerAnnotations : DbMigration
+    public partial class GameGenre : DbMigration
     {
         public override void Up()
         {
-            AlterColumn("dbo.Players", "Name", c => c.String(nullable: false, maxLength: 255));
+            AddColumn("dbo.Games", "Genre", c => c.String(nullable: false));
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Players", "Name", c => c.String());
+            DropColumn("dbo.Games", "Genre");
         }
     }
 }

@@ -1,0 +1,53 @@
+﻿@model Gamezy.ViewModels.IndexPlayerViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*Some lazy temp Styling *@
+<style type="text/css">
+    td, th {
+        padding:0 15px 0 15px;
+    }
+</style>
+
+<h2>Details</h2>
+<table>
+    <tr>
+        <td>
+            <h4>ID</h4>
+        </td>
+        <td>
+            <h4>Name</h4>
+        </td>
+        <td>
+            <h4>Birthday</h4>
+        </td>
+        <td>
+            <h4>Membership</h4>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Model.Players[0].Id
+        </td>
+        <td>
+            @Model.Players[0].Name
+        </td>
+        <td>
+            @Model.Players[0].Birthday
+        </td>
+        <td>
+            @Model.Players[0].MembershipId
+        </td>
+        <td>
+            @Html.ActionLink("Edit", 
+                "Edit",   // <-- ActionMethod
+                "Players",  // <-- Controller Name.
+                new { Model.Players[0].Id }, // <-- Route arguments.
+                null  // <-- htmlArguments .. which are none. Required.
+                )
+        </td>
+    </tr>
+</table>
