@@ -197,13 +197,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803080414486_InitialMigration.cs" />
-    <Compile Include="Migrations\201803080414486_InitialMigration.Designer.cs">
-      <DependentUpon>201803080414486_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804092308216_PlayerDescription.cs" />
-    <Compile Include="Migrations\201804092308216_PlayerDescription.Designer.cs">
-      <DependentUpon>201804092308216_PlayerDescription.cs</DependentUpon>
+    <Compile Include="Migrations\201804100011495_Initial.cs" />
+    <Compile Include="Migrations\201804100011495_Initial.Designer.cs">
+      <DependentUpon>201804100011495_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -285,7 +281,11 @@
     <Content Include="Views\Players\Index.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201804100011495_Initial.resx">
+      <DependentUpon>201804100011495_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -298,14 +298,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803080414486_InitialMigration.resx">
-      <DependentUpon>201803080414486_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804092308216_PlayerDescription.resx">
-      <DependentUpon>201804092308216_PlayerDescription.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
