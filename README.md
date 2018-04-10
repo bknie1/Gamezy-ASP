@@ -13,10 +13,12 @@ The .NET MVC Framework allows us to quickly realize the relationships between ob
   - The Player controller can be used to populate a View with n number of Players or, if an integer is passed, a specific player.
   - Similarly, we can list Games. Both of these could feature SortBy or by UID.
   - Regardless, this is where we discriminate against our database and pull exactly what we want to present to the user.
+  - We use View Model classes to indicate what we need for a View. We build out an instance of that View Model in the Controller to pass to our View.
   - This data gets passed to the appropriate View.
 
 ### View Examples
   - The Controller isolated the data we're interested in and now we pull it into the appropriate View for the user.
+  - We talk to the model by declaring, in Razor, @model Project.ViewModels.TheModel at the head of our mark up.
   - Here, we can use **Razor C# Markup** to embed C# into our HTML.
   - If we're displaying Player or Game data, each Player or Game may, in itself, be a partial view comprised of information for that specific Model. e.g. In our GameList view, each Game may have its own partial. This reduces clutter.
 
