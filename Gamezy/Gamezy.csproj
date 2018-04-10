@@ -213,6 +213,10 @@
     <Compile Include="Migrations\201804100143435_PlayerBirthday.Designer.cs">
       <DependentUpon>201804100143435_PlayerBirthday.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804100335035_PlayerDescMembershipAnnotation.cs" />
+    <Compile Include="Migrations\201804100335035_PlayerDescMembershipAnnotation.Designer.cs">
+      <DependentUpon>201804100335035_PlayerDescMembershipAnnotation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Membership.cs" />
@@ -224,6 +228,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\IndexGameViewModel.cs" />
     <Compile Include="ViewModels\IndexPlayerViewModel.cs" />
+    <Compile Include="ViewModels\NewPlayerViewModel.cs" />
     <Compile Include="ViewModels\RandomGameViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -292,6 +297,7 @@
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Players\Index.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Players\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804100011495_Initial.resx">
@@ -305,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804100143435_PlayerBirthday.resx">
       <DependentUpon>201804100143435_PlayerBirthday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804100335035_PlayerDescMembershipAnnotation.resx">
+      <DependentUpon>201804100335035_PlayerDescMembershipAnnotation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
