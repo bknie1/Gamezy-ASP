@@ -4,6 +4,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@*Some lazy POC CSS *@
+<style type="text/css">
+    .center {
+        text-align: center;
+    }
+
+     td, th {
+         padding:0 15px 0 15px;
+     }
+</style>
+
 <h2>Players</h2>
 
 <!-- Display player data. -->
@@ -45,13 +56,17 @@ else
     <table>
         <tr>
             <th>Player Name</th>
+            <th>Discount Rate</th>
         </tr>
         @{
             foreach (var p in Model.Players)
             {
                 <tr>
                     <td>
-                        <p><a href="./Players/Details/@p.Id">@p.Name</a></p>
+                        <a href="./Players/Details/@p.Id">@p.Name</a>
+                    </td>
+                    <td class="center">
+                        @p.Membership.DiscountRate%
                     </td>
                 </tr>
             }
