@@ -16,10 +16,17 @@
 else if (Model.Players.Count == 1)
 {
     <h3>@Model.Players[0].Name</h3>
-
-    <h4>Newsletter Subscription</h4>
-        if (Model.Players[0].NewsletterSubscription)
-        {
+    <br />
+    <h4>Description</h4>
+    if (@Model.Players[0].Description != null)
+    {
+        <p>
+            @Model.Players[0].Description
+        </p>
+    }
+    <br />
+    if (Model.Players[0].NewsletterSubscription)
+    {
         <p>
             The user is subscribed to the newsletter.
         </p>
