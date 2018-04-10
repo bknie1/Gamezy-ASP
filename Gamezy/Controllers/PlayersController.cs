@@ -26,6 +26,14 @@ namespace Gamezy.Controllers
             _context.Dispose(); // Disposable object.
         }
         //---------------------------------------------------------------------
+        // GET: Players/New
+        public ActionResult New()
+        {
+            var viewModel = new NewPlayerViewModel { Memberships = _context.Membership.ToList() };
+            return View(viewModel);
+        }
+
+        //---------------------------------------------------------------------
         // GET: Players/id
         [Route("Players/Details/{id:regex(\\d*)}")]
         public ActionResult Index(int id)
