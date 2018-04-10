@@ -22,7 +22,7 @@ namespace Gamezy.Controllers
         }
         //---------------------------------------------------------------------
         protected override void Dispose(bool disposing)
-        { 
+        {
             _context.Dispose(); // Disposable object.
         }
         //---------------------------------------------------------------------
@@ -32,11 +32,36 @@ namespace Gamezy.Controllers
             var viewModel = new NewPlayerViewModel { Memberships = _context.Membership.ToList() };
             return View(viewModel);
         }
+        //---------------------------------------------------------------------
+        // POST: Players/Create
+        // To save user data.
+        // We use MODEL BINDING to pass our local new player view model.
+        [HttpPost]
+        public ActionResult Create(NewPlayerViewModel viewModel)
+        {
+            var newPlayer = new Player
+            {
+                Name = viewModel.Player.Name,
+                Birthday = viewModel.Player.Birthday,
+                NewsletterSubscription = viewModel.Player.NewsletterSubscription,
+                MembershipId = viewModel.Player.MembershipId
+            };
 
+            _context.Players.Add(newPlayer); // Add our new player locally.
+            _context.SaveChanges(); // Write changes to DB via transaction.
+            return RedirectToAction("Index", "Players");
+        }
+        //---------------------------------------------------------------------
+        // GET: Players/Edit/id
+        [Route("Players/Edit/{id:regex(\\d*)}")]
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
         //---------------------------------------------------------------------
         // GET: Players/id
         [Route("Players/Details/{id:regex(\\d*)}")]
-        public ActionResult Index(int id)
+        public ActionResult Details(int id)
         {
             try
             {
