@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Migrations;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -50,8 +50,10 @@ namespace Gamezy.Controllers
         public ViewResult Index()
         {
             // Fetches all players.
-            _viewModel = new IndexPlayerViewModel { Players = _context.Players.ToList() };
-            return this.View(_viewModel);
+            //_viewModel = new IndexPlayerViewModel { Players = _context.Players.ToList() };
+
+            _viewModel = new IndexPlayerViewModel {Players = _context.Players.Include(p => p.Membership).ToList()};
+            return View(_viewModel);
         }
     }
 }
